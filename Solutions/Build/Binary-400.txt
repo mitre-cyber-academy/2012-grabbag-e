@@ -1,0 +1,223 @@
+main()
+{
+	key1=0;
+	key2=0;
+	key3=0;
+	key4=0;
+	asm{ @"This is a test of your pixel solving abilities. \r\n"}
+	wait(1);
+	key1=firstC();
+	wait(1);
+	if(key1==19){
+		key2=secondC();
+		wait(1);
+	}
+	if(key2 == 58){
+		key3=thirdC();
+		wait(1);
+	}
+	if(key3 == 143){
+		key4=fourthC();
+		wait(1);
+	}	
+	if(key4 ==185){
+		haveAnswer();
+		key1=0;
+	}
+}
+
+haveAnswer(){
+printFlag();
+
+}
+
+printFlag() { 
+asm{@"Congratulations,Have a Flag:\r\n\t" }
+
+printManyOok(1,16);
+
+printTriOok(2,3,2);
+
+printTriOok(2,1,3);
+
+printManyOok(1,16);
+
+printTriOok(3,1,3);
+
+printTriOok(2,1,3);
+
+printManyOok(1,26);
+
+printTriOok(2,1,3);
+
+printManyOok(1,7);
+
+printTriOok(2,3,2);
+
+printTriOok(2,1,3);
+
+printManyOok(2,6);
+
+printOok(3);
+
+printTriOok(1,3,2);
+
+printTriOok(1,3,2);
+
+printTriOok(2,2,1);
+
+printManyOok(2,5);
+
+printTriOok(1,3,0);
+
+printManyOok(1,9);
+
+printTriOok(2,3,2);
+
+printTriOok(2,1,3);
+
+printManyOok(2,8);
+
+printTriOok(3,1,3);
+
+printTriOok(2,1,3);
+
+printManyOok(2,9);
+
+printManyOok(1,15);
+
+printTriOok(2,1,3);
+
+printManyOok(1,9);
+
+printTriOok(2,3,2);
+
+printTriOok(2,1,3);
+
+printManyOok(1,8);
+
+printTriOok(3,1,3);
+
+printTriOok(2,1,3);
+
+printTriOok(2,1,3);
+
+printManyOok(1,7);
+
+printTriOok(2,3,2);
+
+printTriOok(2,1,3);
+
+printManyOok(2,6);
+
+printTriOok(3,1,3);
+
+printTriOok(2,1,3);
+
+printManyOok(2,11);
+
+printTriOok(1,3,0);
+
+printManyOok(1,7);
+
+printTriOok(2,3,2);
+
+printTriOok(2,1,3);
+
+printManyOok(1,6);
+
+printTriOok(3,1,3);
+
+printTriOok(2,1,3);
+
+printManyOok(1,8);
+
+printTriOok(2,1,3);
+
+printManyOok(1,9);
+
+printTriOok(2,3,2);
+
+printTriOok(2,1,3);
+
+printManyOok(2,8);
+
+printTriOok(3,1,3);
+
+printTriOok(2,1,3);
+
+printManyOok(2,3);
+
+printManyOok(1,11);
+
+printTriOok(2,1,0);
+
+printManyOok(2,5);
+
+printOok(1);
+
+printManyOok(2,5);
+printTriOok(1,3,1);
+
+asm{@"\n\n"}
+return0;
+
+}
+printManyOok(x,y){
+	for(i=0;i<y;i++){
+	    printOok(x);
+	}
+}
+printTriOok(x,y,z){
+	printOok(x);
+	printOok(y);
+	printOok(z);
+}
+printOok(x) {
+	if(x==1){
+	asm{@"Ook."}
+	}
+	if(x==2){
+	asm{@"Ook!"}
+	}
+	if(x==3){
+	asm{@"Ook?"}
+	}
+	if(x==0){
+	asm{@ ""}
+	}
+}
+recurse(x) { 
+	if( x>0) {recurse(x-1);}
+}
+wait(x) {
+	recurse(x*4000);
+}
+firstC(){
+	key=0;
+	asm{ @"What is the largest prime, of those given below? \r\n"}
+	asm{ @"\t 1, 2, 5, 7, 12, 19 \r\n"}
+	key=__inn();
+	return key;
+}
+secondC(){
+	key=0;
+	asm{ @"\tNot NOP (for two byte op-codes...add)\r\n" }
+	asm{ @"\t0x90, 0x0F 0x1F,0xD9 0xD0, 0x58 \r\n" }
+	key=__inn();
+	return key;
+
+}
+thirdC(){
+	key=0;
+	asm{ @"\tBitmap Magic number: \r\n"}
+	key=__inn(); 
+	return key;
+}
+fourthC(){
+	key=0;
+	asm{ @"You should be able to figure it out by now... \r\n"}
+	key=__inn(); 
+	return key;
+
+}

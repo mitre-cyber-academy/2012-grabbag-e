@@ -1,0 +1,6 @@
+name: "The Esoteric Challenge"
+description: |
+  [Neoplasticism](http://$static_file_server/gbe-88a4b38b72ec4ee5abdab0ab50d2edb2/esoteric.png) in a CTF? Wat? Better ask a Librarian!
+  
+  MD5: cb5eb41f7f282edb5216a0abdd2806d7
+flag: "MCA-4D6C2753"
